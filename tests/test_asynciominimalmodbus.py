@@ -103,6 +103,37 @@ class TestAsyncioInstrument(unittest.TestCase):
 
             self.assertEqual(expected, async_instrument.roundtrip_time)
 
+    def test_read_bit(self):
+        with mock.patch('asyncioinstrument.Instrument'):
+            async_instrument = AsyncioInstrument("COMx", 0x99)
+
+            read_bit = Mock(return_value=1)
+            async_instrument.instrument.read_bit = read_bit
+
+            async def test_function():
+                value = await async_instrument.read_bit(100)
+
+                self.assertEqual(1, value)
+                read_bit.assert_called_once_with(registeraddress=100, functioncode=2)
+
+
+            loop.run_until_complete(test_function())
+
+
+    def test_write_bit(self):
+        with mock.patch('asyncioinstrument.Instrument'):
+            async_instrument = AsyncioInstrument("COMx", 0x99)
+
+            write_bit = Mock()
+            async_instrument.instrument.write_bit = write_bit
+
+            async def test_function():
+                await async_instrument.write_bit(100, 1)
+                write_bit.assert_called_once_with(registeraddress=100, value=1, functioncode=5)
+
+            loop.run_until_complete(test_function())
+
+
 
 if __name__ == '__main__':
     unittest.main()

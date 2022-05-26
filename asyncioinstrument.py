@@ -22,6 +22,7 @@ __url__ = "https://github.com/pyhys/minimalmodbus"
 __version__ = "0.0.0"
 
 import asyncio
+import functools
 import sys
 
 import serial
@@ -124,9 +125,11 @@ class AsyncioInstrument:
 
         return await self.loop.run_in_executor(
             None,
-            self.instrument.read_bit,
-            registeraddress,
-            functioncode
+            lambda:
+            self.instrument.read_bit(
+                registeraddress=registeraddress,
+                functioncode=functioncode
+            )
         )
 
     async def write_bit(
@@ -136,13 +139,23 @@ class AsyncioInstrument:
         For method documentation refer to Instrument.write_bit()
         """
 
-        await self.loop.run_in_executor(
+        return await self.loop.run_in_executor(
             None,
-            self.instrument.write_bit,
-            registeraddress,
-            value,
-            functioncode
+            lambda:
+            self.instrument.write_bit(
+                registeraddress=registeraddress,
+                value=value,
+                functioncode=functioncode
+            )
         )
+
+        # await self.loop.run_in_executor(
+        #     None,
+        #     self.instrument.write_bit,
+        #     registeraddress,
+        #     value,
+        #     functioncode
+        # )
 
     async def read_bits(
             self, registeraddress: int, number_of_bits: int, functioncode: int = 2
