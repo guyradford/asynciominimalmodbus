@@ -11,7 +11,7 @@ setup(
     license='Apache License, Version 2.0',
     install_requires=[],
     setup_requires=['pytest-runner'],
-    tests_require=['pytest==6.2.5'],
+    tests_require=['pytest==6.2.5', 'pylint==2.13.9'],
     test_suite='tests',
-    python_requires='>=3.7',
+    python_requires='>=3.6',
 )
