@@ -16,12 +16,13 @@ def data_provider_test_read_value_with_defaults():
         ('read_register', 100, 1, {'functioncode': 3, 'number_of_decimals': 0, 'signed': False}),
         ('read_long', 100, 12345678, {'functioncode': 3, 'signed': False, 'byteorder': BYTEORDER_BIG}),
         ('read_float', 100, 123.456, {'functioncode': 3, 'number_of_registers': 2, 'byteorder': BYTEORDER_BIG}),
+        ('read_float', 100, 321, {'functioncode': 3, 'number_of_registers': 2, 'byteorder': BYTEORDER_BIG}),
         ('read_string', 100, "Testing", {'number_of_registers': 16, 'functioncode': 3}),
     ]
 
 
 @pytest.mark.parametrize("method, registeraddress, expected, defaults", data_provider_test_read_value_with_defaults())
-def test_read_with_defaults(method, registeraddress, expected, defaults):
+def test_read_value_with_defaults(method, registeraddress, expected, defaults):
     with mock.patch('asyncioinstrument.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
@@ -47,7 +48,7 @@ def data_provider_test_read_values_with_defaults():
 
 @pytest.mark.parametrize("method, registeraddress, number_of_, expected, defaults",
                          data_provider_test_read_values_with_defaults())
-def test_read_with_defaults(method, registeraddress, number_of_, expected, defaults):
+def test_read_values_with_defaults(method, registeraddress, number_of_, expected, defaults):
     with mock.patch('asyncioinstrument.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
@@ -93,7 +94,7 @@ def data_provider_test_read_values_override_defaults():
 
 @pytest.mark.parametrize("method, params, expected",
                          data_provider_test_read_values_override_defaults())
-def test_read_with_defaults(method, params, expected):
+def test_read_with_values_override_defaults(method, params, expected):
     with mock.patch('asyncioinstrument.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 

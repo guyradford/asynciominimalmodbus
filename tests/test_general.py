@@ -1,5 +1,5 @@
 import asyncio
-from unittest import mock, TestCase
+from unittest import mock
 from unittest.mock import Mock
 
 import pytest
@@ -38,7 +38,7 @@ def test_init_override_defaults():
 
 def test_init_with_loop():
     with mock.patch('asyncioinstrument.Instrument'):
-        async_instrument = AsyncioInstrument("Test Port", 0x99)
+        async_instrument = AsyncioInstrument("Test Port", 0x99, loop=loop)
 
         assert loop == async_instrument.loop
 
