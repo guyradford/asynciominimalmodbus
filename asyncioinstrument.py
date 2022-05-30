@@ -125,8 +125,7 @@ class AsyncioInstrument:
 
         return await self.loop.run_in_executor(
             None,
-            lambda:
-            self.instrument.read_bit(
+            lambda: self.instrument.read_bit(
                 registeraddress=registeraddress,
                 functioncode=functioncode
             )
@@ -141,21 +140,12 @@ class AsyncioInstrument:
 
         return await self.loop.run_in_executor(
             None,
-            lambda:
-            self.instrument.write_bit(
+            lambda: self.instrument.write_bit(
                 registeraddress=registeraddress,
                 value=value,
                 functioncode=functioncode
             )
         )
-
-        # await self.loop.run_in_executor(
-        #     None,
-        #     self.instrument.write_bit,
-        #     registeraddress,
-        #     value,
-        #     functioncode
-        # )
 
     async def read_bits(
             self, registeraddress: int, number_of_bits: int, functioncode: int = 2
@@ -166,10 +156,11 @@ class AsyncioInstrument:
 
         return await self.loop.run_in_executor(
             None,
-            self.instrument.read_bits,
-            registeraddress,
-            number_of_bits,
-            functioncode
+            lambda: self.instrument.read_bits(
+                registeraddress=registeraddress,
+                number_of_bits=number_of_bits,
+                functioncode=functioncode
+            )
         )
 
     async def write_bits(self, registeraddress: int, values: List[int]) -> None:
@@ -178,7 +169,10 @@ class AsyncioInstrument:
         """
         await self.loop.run_in_executor(
             None,
-            self.instrument.write_bits(registeraddress, values)
+            lambda: self.instrument.write_bits(
+                registeraddress=registeraddress,
+                values=values,
+            )
         )
 
     async def read_register(
@@ -194,11 +188,12 @@ class AsyncioInstrument:
 
         return await self.loop.run_in_executor(
             None,
-            self.instrument.read_register,
-            registeraddress,
-            number_of_decimals,
-            functioncode,
-            signed,
+            lambda: self.instrument.read_register(
+                registeraddress=registeraddress,
+                number_of_decimals=number_of_decimals,
+                functioncode=functioncode,
+                signed=signed
+            )
         )
 
     async def write_register(
@@ -215,13 +210,13 @@ class AsyncioInstrument:
 
         await self.loop.run_in_executor(
             None,
-            self.instrument.write_register,
-            registeraddress,
-            value,
-            number_of_decimals,
-            functioncode,
-            signed
-
+            lambda: self.instrument.write_register(
+                registeraddress=registeraddress,
+                value=value,
+                number_of_decimals=number_of_decimals,
+                functioncode=functioncode,
+                signed=signed
+            )
         )
 
     async def read_long(
@@ -237,12 +232,12 @@ class AsyncioInstrument:
 
         return await self.loop.run_in_executor(
             None,
-            self.instrument.read_long,
-            registeraddress,
-            functioncode,
-            signed,
-            byteorder
-
+            lambda: self.instrument.read_long(
+                registeraddress=registeraddress,
+                functioncode=functioncode,
+                signed=signed,
+                byteorder=byteorder
+            )
         )
 
     async def write_long(
@@ -258,12 +253,12 @@ class AsyncioInstrument:
 
         await self.loop.run_in_executor(
             None,
-            self.instrument.write_register,
-            registeraddress,
-            value,
-            signed,
-            byteorder
-
+            lambda: self.instrument.write_long(
+                registeraddress=registeraddress,
+                value=value,
+                signed=signed,
+                byteorder=byteorder,
+            )
         )
 
     async def read_float(
@@ -279,11 +274,12 @@ class AsyncioInstrument:
 
         return await self.loop.run_in_executor(
             None,
-            self.instrument.read_float,
-            registeraddress,
-            functioncode,
-            number_of_registers,
-            byteorder
+            lambda: self.instrument.read_float(
+                registeraddress=registeraddress,
+                functioncode=functioncode,
+                number_of_registers=number_of_registers,
+                byteorder=byteorder
+            )
         )
 
     async def write_float(
@@ -299,12 +295,12 @@ class AsyncioInstrument:
 
         await self.loop.run_in_executor(
             None,
-            self.instrument.write_float,
-            registeraddress,
-            value,
-            number_of_registers,
-            byteorder
-
+            lambda: self.instrument.write_float(
+                registeraddress=registeraddress,
+                value=value,
+                number_of_registers=number_of_registers,
+                byteorder=byteorder,
+            )
         )
 
     async def read_string(
@@ -316,11 +312,11 @@ class AsyncioInstrument:
 
         return await self.loop.run_in_executor(
             None,
-            self.instrument.read_string,
-            registeraddress,
-            number_of_registers,
-            functioncode,
-
+            lambda: self.instrument.read_string(
+                registeraddress=registeraddress,
+                number_of_registers=number_of_registers,
+                functioncode=functioncode,
+            )
         )
 
     async def write_string(
@@ -332,11 +328,11 @@ class AsyncioInstrument:
 
         await self.loop.run_in_executor(
             None,
-            self.instrument.write_string,
-            registeraddress,
-            textstring,
-            number_of_registers,
-
+            lambda: self.instrument.write_string(
+                registeraddress=registeraddress,
+                textstring=textstring,
+                number_of_registers=number_of_registers,
+            )
         )
 
     async def read_registers(
@@ -348,11 +344,11 @@ class AsyncioInstrument:
 
         return await self.loop.run_in_executor(
             None,
-            self.instrument.read_registers,
-            registeraddress,
-            number_of_registers,
-            functioncode,
-
+            lambda: self.instrument.read_registers(
+                registeraddress=registeraddress,
+                number_of_registers=number_of_registers,
+                functioncode=functioncode,
+            )
         )
 
     async def write_registers(self, registeraddress: int, values: List[int]) -> None:
@@ -362,8 +358,8 @@ class AsyncioInstrument:
 
         await self.loop.run_in_executor(
             None,
-            self.instrument.write_registers,
-            registeraddress,
-            values,
-
+            lambda: self.instrument.write_registers(
+                registeraddress=registeraddress,
+                values=values,
+            )
         )
