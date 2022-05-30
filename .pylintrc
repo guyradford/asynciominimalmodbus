@@ -1,4 +1,4 @@
 [MASTER]
 
-max-line-length=80
+max-line-length=120
 disable=C0114, # missing-module-docstring
