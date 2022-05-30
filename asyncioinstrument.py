@@ -26,13 +26,12 @@ import sys
 
 import serial
 from minimalmodbus import Instrument, MODE_RTU, BYTEORDER_BIG
+from typing import List, Optional, Union  # noqa: E402
 
 if sys.version_info < (3, 6, 0):
     raise ImportError(
         "Your Python version is too old for this version of MinimalModbus"
     )
-
-from typing import List, Optional, Union  # noqa: E402
 
 
 # ################################ #
@@ -71,7 +70,7 @@ class AsyncioInstrument:
             close_port_after_each_call: bool = False,
             debug: bool = False,
             loop=None
-    ) -> None:
+    ) -> None:  # pylint: disable=R0913
 
         self.instrument = Instrument(
             port,
@@ -205,7 +204,7 @@ class AsyncioInstrument:
             number_of_decimals: int = 0,
             functioncode: int = 16,
             signed: bool = False,
-    ) -> None:
+    ) -> None:  # pylint: disable=R0913
         """
         For method documentation refer to Instrument.write_register()
         """
