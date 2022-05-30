@@ -22,7 +22,6 @@ __url__ = "https://github.com/pyhys/minimalmodbus"
 __version__ = "0.0.0"
 
 import asyncio
-import functools
 import sys
 
 import serial
@@ -100,6 +99,9 @@ class AsyncioInstrument:
 
     @property
     def serial(self) -> serial.Serial:
+        """
+        :return: serial.Serial
+        """
         return self.instrument.serial
 
     @property
