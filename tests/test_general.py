@@ -54,10 +54,10 @@ def test_init_without_loop():
 def test___repr__():
     with mock.patch('asyncioinstrument.Instrument') as instrument:
         instrument.__repr__ = Mock(
-            return_value="minimalmodbus.Instrument<id=0x254dfd4e708, address=99, mode=rtu, close_port_after_each_call=False, precalculate_read_size=True, clear_buffers_before_each_transaction=True, handle_local_echo=False, debug=False, serial=Serial<id=0x254dfd4e888, open=True>(port='COMx', baudrate=9600, bytesize=8, parity='N', stopbits=1, timeout=0.05, xonxoff=False, rtscts=False, dsrdtr=False)>")
+            return_value="minimalmodbus.Instrument<id=0x254dfd4e708, address=99, mode=rtu, close_port_after_each_call=False, precalculate_read_size=True, clear_buffers_before_each_transaction=True, handle_local_echo=False, debug=False, serial=Serial<id=0x254dfd4e888, open=True>(port='COMx', baudrate=9600, bytesize=8, parity='N', stopbits=1, timeout=0.05, xonxoff=False, rtscts=False, dsrdtr=False)>")  # pylint: disable=C0301
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
-        assert "asyncioinstrument.AsyncioInstrument<id=0x23f4a898248, instrument=<MagicMock name='Instrument()' id='2470856721096'>>" == repr(
+        assert "asyncioinstrument.AsyncioInstrument<id=0x23f4a898248, instrument=<MagicMock name='Instrument()' id='2470856721096'>>" == repr(  # pylint: disable=C0301
             async_instrument)
 
 
