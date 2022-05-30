@@ -1,4 +1,4 @@
 [MASTER]
 
 max-line-length=120
-disable=C0114, C0116,
+disable=C0114, C0116, R0801

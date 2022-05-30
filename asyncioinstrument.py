@@ -23,10 +23,10 @@ __version__ = "0.0.0"
 
 import asyncio
 import sys
+from typing import List, Optional, Union  # noqa: E402
 
 import serial
 from minimalmodbus import Instrument, MODE_RTU, BYTEORDER_BIG
-from typing import List, Optional, Union  # noqa: E402
 
 if sys.version_info < (3, 6, 0):
     raise ImportError(
