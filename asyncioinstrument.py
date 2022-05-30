@@ -62,7 +62,7 @@ class AsyncioInstrument:
 
     """
 
-    def __init__(
+    def __init__(  # pylint: disable=R0913
             self,
             port: str,
             slaveaddress: int,
@@ -70,7 +70,7 @@ class AsyncioInstrument:
             close_port_after_each_call: bool = False,
             debug: bool = False,
             loop=None
-    ) -> None:  # pylint: disable=R0913
+    ) -> None:
 
         self.instrument = Instrument(
             port,
@@ -197,14 +197,14 @@ class AsyncioInstrument:
             )
         )
 
-    async def write_register(
+    async def write_register(  # pylint: disable=R0913
             self,
             registeraddress: int,
             value: Union[int, float],
             number_of_decimals: int = 0,
             functioncode: int = 16,
             signed: bool = False,
-    ) -> None:  # pylint: disable=R0913
+    ) -> None:
         """
         For method documentation refer to Instrument.write_register()
         """
