@@ -5,7 +5,7 @@ from unittest.mock import Mock
 import pytest
 from minimalmodbus import MODE_ASCII
 
-from asyncioinstrument import AsyncioInstrument
+from asynciominimalmodbus import AsyncioInstrument
 
 loop = asyncio.get_event_loop()
 
