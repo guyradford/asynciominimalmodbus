@@ -13,7 +13,7 @@ Supports Python 3.6, 3.7, 3.8. 3.9 and 3.10
 ## Installation
 
 ```shell
-pip install asynciominimalmodbus
+pip install AsyncioMinimalModbus
 ```
 
 ### Dependencies

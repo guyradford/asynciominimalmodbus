@@ -5,7 +5,7 @@ from unittest.mock import Mock
 import pytest
 from minimalmodbus import BYTEORDER_BIG, BYTEORDER_LITTLE, BYTEORDER_BIG_SWAP
 
-from asyncioinstrument import AsyncioInstrument
+from asynciominimalmodbus import AsyncioInstrument
 
 loop = asyncio.get_event_loop()
 
@@ -22,7 +22,7 @@ def data_provider_test_write_value_with_defaults():
 
 @pytest.mark.parametrize("method, registeraddress, expected, defaults", data_provider_test_write_value_with_defaults())
 def test_write_value_with_defaults(method, registeraddress, expected, defaults):
-    with mock.patch('asyncioinstrument.Instrument'):
+    with mock.patch('asynciominimalmodbus.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
         method_mock = Mock()
@@ -41,7 +41,7 @@ def test_write_string_with_defaults():
     registeraddress = 200
     expected = "Testing"
 
-    with mock.patch('asyncioinstrument.Instrument'):
+    with mock.patch('asynciominimalmodbus.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
         method_mock = Mock()
@@ -66,7 +66,7 @@ def data_provider_test_write_values_with_defaults():
 @pytest.mark.parametrize("method, registeraddress, expected, defaults",
                          data_provider_test_write_values_with_defaults())
 def test_write_calues_with_defaults(method, registeraddress, expected, defaults):
-    with mock.patch('asyncioinstrument.Instrument'):
+    with mock.patch('asynciominimalmodbus.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
         method_mock = Mock()
@@ -115,7 +115,7 @@ def data_provider_test_write_values_override_defaults():
 @pytest.mark.parametrize("method, params",
                          data_provider_test_write_values_override_defaults())
 def test_write_with_values_override_defaults(method, params):
-    with mock.patch('asyncioinstrument.Instrument'):
+    with mock.patch('asynciominimalmodbus.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
         method_mock = Mock()
