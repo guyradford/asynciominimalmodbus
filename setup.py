@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="AsyncioMinimalModbus",
-    version=os.getenv("GITHUB_REF_NAME") if os.getenv("GITHUB_REF_NAME") else "0.0.0",
+    version=os.getenv("GITHUB_REF_NAME") if os.getenv("GITHUB_REF_NAME") and os.getenv("GITHUB_REF_TYPE") == "tag" else "0.0.0",
 
     author="Guy Radford",
     description="Easy-to-use Modbus RTU and Modbus ASCII implementation for Python",
