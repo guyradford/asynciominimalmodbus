@@ -49,7 +49,6 @@ jobs:
 
     - name: Run tests
       run: |
-#        python setup.py pytest
         pytest
 
   test-build:
