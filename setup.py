@@ -37,12 +37,11 @@ setuptools.setup(
         "Programming Language :: Python :: 3.10",
         "Topic :: Communications",
         "Topic :: Home Automation",
-        "Topic :: Scientific / Engineering",
+        "Topic :: Scientific/Engineering",
         "Topic :: Software Development :: Libraries",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: System :: Hardware :: Hardware Drivers",
         "Topic :: Terminals :: Serial",
-
     ],
     py_modules=['asyncioinstrument'],
     python_requires=">=3.6",
