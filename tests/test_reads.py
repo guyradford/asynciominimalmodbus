@@ -23,7 +23,7 @@ def data_provider_test_read_value_with_defaults():
 
 @pytest.mark.parametrize("method, registeraddress, expected, defaults", data_provider_test_read_value_with_defaults())
 def test_read_value_with_defaults(method, registeraddress, expected, defaults):
-    with mock.patch('asyncioinstrument.Instrument'):
+    with mock.patch('asynciominimalmodbus.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
         method_mock = Mock(return_value=expected)
@@ -49,7 +49,7 @@ def data_provider_test_read_values_with_defaults():
 @pytest.mark.parametrize("method, registeraddress, number_of_, expected, defaults",
                          data_provider_test_read_values_with_defaults())
 def test_read_values_with_defaults(method, registeraddress, number_of_, expected, defaults):
-    with mock.patch('asyncioinstrument.Instrument'):
+    with mock.patch('asynciominimalmodbus.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
         method_mock = Mock(return_value=expected)
@@ -95,7 +95,7 @@ def data_provider_test_read_values_override_defaults():
 @pytest.mark.parametrize("method, params, expected",
                          data_provider_test_read_values_override_defaults())
 def test_read_with_values_override_defaults(method, params, expected):
-    with mock.patch('asyncioinstrument.Instrument'):
+    with mock.patch('asynciominimalmodbus.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
         method_mock = Mock(return_value=expected)

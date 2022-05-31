@@ -44,7 +44,7 @@ setuptools.setup(
         "Topic:: Terminals:: Serial",
 
     ],
-    py_modules=['asyncioinstrument'],
+    py_modules=['asynciominimalmodbus'],
     python_requires=">=3.6",
     install_requires=['minimalmodbus>=2.0.1'],
     test_suite='tests',

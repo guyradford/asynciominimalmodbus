@@ -14,7 +14,7 @@ def test_init_with_defaults():
     port = "Test Port"
     slave_address = 0x99
 
-    with mock.patch('asyncioinstrument.Instrument') as instrument:
+    with mock.patch('asynciominimalmodbus.Instrument') as instrument:
         AsyncioInstrument(port, slave_address)
 
         instrument.assert_called_once_with(port, slave_address, 'rtu', False, False)
@@ -24,7 +24,7 @@ def test_init_override_defaults():
     port = "Test Port"
     slave_address = 0x99
 
-    with mock.patch('asyncioinstrument.Instrument') as instrument:
+    with mock.patch('asynciominimalmodbus.Instrument') as instrument:
         AsyncioInstrument(
             port,
             slave_address,
@@ -37,14 +37,14 @@ def test_init_override_defaults():
 
 
 def test_init_with_loop():
-    with mock.patch('asyncioinstrument.Instrument'):
+    with mock.patch('asynciominimalmodbus.Instrument'):
         async_instrument = AsyncioInstrument("Test Port", 0x99, loop=loop)
 
         assert loop == async_instrument.loop
 
 
 def test_init_without_loop():
-    with mock.patch('asyncioinstrument.Instrument'):
+    with mock.patch('asynciominimalmodbus.Instrument'):
         async_instrument = AsyncioInstrument("Test Port", 0x99)
 
         assert loop == async_instrument.loop
@@ -52,17 +52,17 @@ def test_init_without_loop():
 
 @pytest.mark.skip(reason="Still need to drill down into ids etc.")
 def test___repr__():
-    with mock.patch('asyncioinstrument.Instrument') as instrument:
+    with mock.patch('asynciominimalmodbus.Instrument') as instrument:
         instrument.__repr__ = Mock(
             return_value="minimalmodbus.Instrument<id=0x254dfd4e708, address=99, mode=rtu, close_port_after_each_call=False, precalculate_read_size=True, clear_buffers_before_each_transaction=True, handle_local_echo=False, debug=False, serial=Serial<id=0x254dfd4e888, open=True>(port='COMx', baudrate=9600, bytesize=8, parity='N', stopbits=1, timeout=0.05, xonxoff=False, rtscts=False, dsrdtr=False)>")  # pylint: disable=C0301
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
-        assert "asyncioinstrument.AsyncioInstrument<id=0x23f4a898248, instrument=<MagicMock name='Instrument()' id='2470856721096'>>" == repr(  # pylint: disable=C0301
+        assert "asynciominimalmodbus.AsyncioInstrument<id=0x23f4a898248, instrument=<MagicMock name='Instrument()' id='2470856721096'>>" == repr(  # pylint: disable=C0301
             async_instrument)
 
 
 def test_serial_property():
-    with mock.patch('asyncioinstrument.Instrument'):
+    with mock.patch('asynciominimalmodbus.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
         expected_serial = Mock()
@@ -72,7 +72,7 @@ def test_serial_property():
 
 
 def test_precalculate_read_size_property():
-    with mock.patch('asyncioinstrument.Instrument'):
+    with mock.patch('asynciominimalmodbus.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
         expected = True
@@ -82,7 +82,7 @@ def test_precalculate_read_size_property():
 
 
 def test_clear_buffers_before_each_transaction_property():
-    with mock.patch('asyncioinstrument.Instrument'):
+    with mock.patch('asynciominimalmodbus.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
         expected = True
@@ -92,7 +92,7 @@ def test_clear_buffers_before_each_transaction_property():
 
 
 def test_handle_local_echo_property():
-    with mock.patch('asyncioinstrument.Instrument'):
+    with mock.patch('asynciominimalmodbus.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
         expected = True
@@ -102,7 +102,7 @@ def test_handle_local_echo_property():
 
 
 def test_roundtrip_time_property():
-    with mock.patch('asyncioinstrument.Instrument'):
+    with mock.patch('asynciominimalmodbus.Instrument'):
         async_instrument = AsyncioInstrument("COMx", 0x99)
 
         expected = 12.3
