@@ -1,9 +1,9 @@
 import asyncio
-from unittest import mock, TestCase
+from unittest import mock
 from unittest.mock import Mock
 
 import pytest
-from minimalmodbus import MODE_ASCII, BYTEORDER_BIG, BYTEORDER_LITTLE, BYTEORDER_BIG_SWAP
+from minimalmodbus import BYTEORDER_BIG, BYTEORDER_LITTLE, BYTEORDER_BIG_SWAP
 
 from asyncioinstrument import AsyncioInstrument
 

@@ -22,8 +22,8 @@ __url__ = "https://github.com/pyhys/minimalmodbus"
 __version__ = "0.0.0"
 
 import asyncio
-import functools
 import sys
+from typing import List, Optional, Union  # noqa: E402
 
 import serial
 from minimalmodbus import Instrument, MODE_RTU, BYTEORDER_BIG
@@ -32,8 +32,6 @@ if sys.version_info < (3, 6, 0):
     raise ImportError(
         "Your Python version is too old for this version of MinimalModbus"
     )
-
-from typing import List, Optional, Union  # noqa: E402
 
 
 # ################################ #
@@ -64,7 +62,7 @@ class AsyncioInstrument:
 
     """
 
-    def __init__(
+    def __init__(  # pylint: disable=R0913
             self,
             port: str,
             slaveaddress: int,
@@ -100,6 +98,9 @@ class AsyncioInstrument:
 
     @property
     def serial(self) -> serial.Serial:
+        """
+        :return: serial.Serial
+        """
         return self.instrument.serial
 
     @property
@@ -196,7 +197,7 @@ class AsyncioInstrument:
             )
         )
 
-    async def write_register(
+    async def write_register(  # pylint: disable=R0913
             self,
             registeraddress: int,
             value: Union[int, float],
