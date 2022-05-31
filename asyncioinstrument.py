@@ -18,7 +18,7 @@
 
 __author__ = "Guy Radford"
 __license__ = "Apache License, Version 2.0"
-__url__ = "https://github.com/pyhys/minimalmodbus"
+__url__ = "https://github.com/guyradford/asynciominimalmodbus"
 __version__ = "0.0.0"
 
 import asyncio
@@ -30,7 +30,7 @@ from minimalmodbus import Instrument, MODE_RTU, BYTEORDER_BIG
 
 if sys.version_info < (3, 6, 0):
     raise ImportError(
-        "Your Python version is too old for this version of MinimalModbus"
+        "Your Python version is too old for this version of AsyncioMinimalModbus"
     )
 
 
