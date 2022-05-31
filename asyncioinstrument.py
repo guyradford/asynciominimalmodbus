@@ -22,7 +22,6 @@ from typing import List, Optional, Union  # noqa: E402
 __author__ = "Guy Radford"
 __license__ = "Apache License, Version 2.0"
 __url__ = "https://github.com/guyradford/asynciominimalmodbus"
-__version__ = "0.0.0"
 
 import serial
 from minimalmodbus import Instrument, MODE_RTU, BYTEORDER_BIG
