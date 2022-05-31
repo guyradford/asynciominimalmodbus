@@ -15,15 +15,15 @@
 #   limitations under the License.
 #
 """AsyncioMinimalModbus: A Python class that wraps MinimalModbus to add Async functionality."""
+import asyncio
+# import os
+import sys
+from typing import List, Optional, Union  # noqa: E402
 
 __author__ = "Guy Radford"
 __license__ = "Apache License, Version 2.0"
 __url__ = "https://github.com/guyradford/asynciominimalmodbus"
-__version__ = "0.0.0"
-
-import asyncio
-import sys
-from typing import List, Optional, Union  # noqa: E402
+# __version__ = os.getenv("GITHUB_REF_NAME") if os.getenv("GITHUB_REF_NAME") else "0.0.0"
 
 import serial
 from minimalmodbus import Instrument, MODE_RTU, BYTEORDER_BIG
