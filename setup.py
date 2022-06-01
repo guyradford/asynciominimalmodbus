@@ -13,9 +13,8 @@ setuptools.setup(
     description="Async Easy-to-use Modbus RTU and Modbus ASCII implementation for Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://pypi.org/project/AsyncioMinimalModbus/",
+    url="https://github.com/guyradford/asynciominimalmodbus",
     project_urls={
-        "GitHub": "https://github.com/guyradford/asynciominimalmodbus",
         "Bug Tracker": "https://github.com/guyradford/asynciominimalmodbus/issues",
     },
     classifiers=[
