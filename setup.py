@@ -10,7 +10,7 @@ setuptools.setup(
         "GITHUB_REF_TYPE") == "tag" else "0.0.0",
 
     author="Guy Radford",
-    description="Easy-to-use Modbus RTU and Modbus ASCII implementation for Python",
+    description="Async Easy-to-use Modbus RTU and Modbus ASCII implementation for Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/guyradford/asynciominimalmodbus",
@@ -42,6 +42,7 @@ setuptools.setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: System :: Hardware :: Hardware Drivers",
         "Topic :: Terminals :: Serial",
+        "Framework :: AsyncIO"
     ],
     py_modules=['asynciominimalmodbus'],
     python_requires=">=3.6",
