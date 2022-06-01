@@ -3,12 +3,12 @@
 ![Build Status](https://github.com/guyradford/asynciominimalmodbus/actions/workflows/pipeline.yml/badge.svg)
 
 Async library wrapping the Easy-to-use Modbus RTU and Modbus ASCII implementation 
-[Minimal Modbus](https://github.com/pyhys/minimalmodbus).
+[Minimal Modbus](https://pypi.org/project/minimalmodbus/).
 
 This library is purely an asyncio wrapper for Minimal Modbus, it supports the same interface, and should be 100% 
 drop in other than needing to add `await`.
 
-Supports Python 3.6, 3.7, 3.8. 3.9 and 3.10
+Supports and Tested on Python 3.6, 3.7, 3.8. 3.9 and 3.10.
 
 ## Installation
 
@@ -37,5 +37,5 @@ Minimal Modbus Documentation: [https://minimalmodbus.readthedocs.io/en/stable/](
 
 ## Contributing
 
-* Issues: https://github.com/guyradford/asynciominimalmodbus/issues
-* Github: https://github.com/guyradford/asynciominimalmodbus
+* Issues: [https://github.com/guyradford/asynciominimalmodbus/issues](https://github.com/guyradford/asynciominimalmodbus/issues)
+* GitHub: [https://github.com/guyradford/asynciominimalmodbus](https://github.com/guyradford/asynciominimalmodbus)
